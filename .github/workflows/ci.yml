@@ -35,9 +35,9 @@ jobs:
       with:
         branch: main
         tag_prefix: "v"
-        major_pattern: "BREAKIN CHANGE:"
+        major_pattern: "BREAKING CHANGE:"
         minor_pattern: "feat:"
-        format: "v${major}.${minor}.${patch}-prerelease{increment}"
+        format: "v${major}.${minor}.${patch}-prerelease${increment}"
 
     - name: Set environment variables
       run: |
@@ -62,5 +62,4 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: ${{ env.REPO }}:latest,${{ env.REPO }}:${{ env.VERSION }}
-
+        tags: ${{ env.REPO }}:${{ steps.versioning.outputs.version }}
