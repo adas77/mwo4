@@ -6,8 +6,8 @@ EXPOSE 8080
 # WORKDIR /usr/app
 RUN mkdir /app
 
-COPY build/libs/*.jar /app/spring-boot-application.jar
+COPY build/libs/*.jar /app/mwo4.jar
 
-ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/spring-boot-application.jar"]
+ENTRYPOINT ["java", "-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap", "-Djava.security.egd=file:/dev/./urandom","-jar","/app/mwo4.jar"]
 
 # ENTRYPOINT ["java", "-jar", "mwo4-0.0.1-SNAPSHOT.jar"]
