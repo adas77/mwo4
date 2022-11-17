@@ -39,6 +39,12 @@ jobs:
         minor_pattern: "feat:"
         format: "v${major}.${minor}.${patch}-prerelease{increment}"
 
+    - name: Set environment variables
+      run: |
+        cat >> $GITHUB_ENV << EOF
+        VERSION=${GITHUB_REF##*/}
+        EOF
+
     - name: Build with Gradle
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
       with:
@@ -56,5 +62,5 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        # tags: ${{env.REPO}}:latest,${{env.REPO}}:${{steps.versioning.outputs.version}}
+        tags: ${{ env.REPO }}:latest,${{ env.REPO }}:${{ env.VERSION }}
 
