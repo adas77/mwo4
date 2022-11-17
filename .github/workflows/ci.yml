@@ -34,7 +34,7 @@ jobs:
         arguments: build
 
     - name: Build and Push Docker Image
-      uses: mr-smithers-excellent/docker-build-push@v4
+      uses: mr-smithers-excellent/docker-build-push@v5
       with:
         image: adas777/mwo4
         registry: docker.io
