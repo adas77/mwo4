@@ -61,7 +61,7 @@ public class ZawodnikServiceTests {
         var zawodnikFromDb = zawodnikService.getZawodnikById(44L);
 
         assertEquals(zawodnik, zawodnikFromDb);
-        assertEquals("Name", zawodnikFromDb.getName());
+        assertEquals("", zawodnikFromDb.getName());
         assertEquals("SurName", zawodnikFromDb.getSurname());
     }
 
