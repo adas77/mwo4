@@ -56,5 +56,5 @@ jobs:
         registry: docker.io
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        tags: ${{env.REPO}}:latest,${{env.REPO}}:${{setps.versioning.outputs.version}}
+        tags: ${{env.REPO}}:latest,${{env.REPO}}:${{steps.versioning.outputs.version}}
 
